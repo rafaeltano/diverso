@@ -75,4 +75,20 @@ class PagesController extends AppController {
 			throw new NotFoundException();
 		}
 	}
+	
+	public function location() {
+		
+		$form=new Forge(url::current(), '', 'POST');
+		$form->input('name')->label('Your Name')->rules('required');
+		$form->input('email')->label('Your Email')->rules('valid_email');
+		$form->textarea('messaje')->label('Your Messaje')->rules('required');
+		$form->submit('submit');
+
+		
+			$this->myFrom = $form;
+		
+		
+        $this->layout = 'default';
+
+    }
 }
